@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="SedoMobileStyleSelector" title="Mobile Style Selector" version_string="1.2" version_id="2" url="" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="controller_pre_dispatch" execute_order="10" callback_class="Sedo_MobileStyleSelector_Listener_ControllerPreDispatch" callback_method="Diktat" active="1" description="Override user choice  for style"/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="Sedo_MobileStyleSelector_Listener_ControllerPublic" callback_method="listen" active="1" description="Public Controller Listener"/>
+    <listener event_id="visitor_setup" execute_order="20" callback_class="Sedo_MobileStyleSelector_Listener_Visitor" callback_method="getVisitor" active="1" description="Visitor Listener"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <optiongroups>
+    <option option_id="sedoDefaultMobileStyle" edit_format="callback" data_type="positive_integer" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params>XenForo_Option_StyleChooser::renderRadio</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="appearance" display_order="120"/>
+    </option>
+    <option option_id="sedoDefaultTabletStyle" edit_format="callback" data_type="positive_integer" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params>Sedo_MobileStyleSelector_Option_Factory::render_styles</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="appearance" display_order="130"/>
+    </option>
+    <option option_id="sedoForceMobileStyle" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="appearance" display_order="140"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="MobileStyleSelector_addon_not_installed" version_id="0" version_string="1"><![CDATA[Required addon not installed]]></phrase>
+    <phrase title="option_sedoDefaultMobileStyle" version_id="0" version_string="1"><![CDATA[Default Mobile Style]]></phrase>
+    <phrase title="option_sedoDefaultMobileStyle_explain" version_id="0" version_string="1"><![CDATA[]]></phrase>
+    <phrase title="option_sedoDefaultTabletStyle" version_id="0" version_string="1"><![CDATA[Default Tablet Style]]></phrase>
+    <phrase title="option_sedoDefaultTabletStyle_explain" version_id="0" version_string="1"><![CDATA[In order to work the option "Default Tablet Style" needs <a href="http://xenforo.com/community/resources/browser-detection-mobile-msie.1098/" target="_blank">this addon</a>. <br />]]></phrase>
+    <phrase title="option_sedoForceMobileStyle" version_id="0" version_string="1"><![CDATA[Force mobile / tablet styles?]]></phrase>
+    <phrase title="option_sedoForceMobileStyle_explain" version_id="1" version_string="1.1"><![CDATA[If you check this option, users will have not other choice than use the mobile style (or tablet style). The style selector will not display any more other styles. <br /> 
+<br /> Sometimes to force the display of the default mobile style, it will require to load a page first to create the default style cookie (ie: when you change the default mobile style from here).]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <bb_code_media_sites/>
+  <template_modifications/>
+</addon>
